@@ -1,0 +1,37 @@
+<meta charset="UTF-8">
+<script>
+
+function BreakLine() {
+    document.write("<br><hr><br>");
+};
+
+function Show(frase) {
+    document.write("<big>" + frase + "</big>");
+    BreakLine();
+};
+
+function IMC(weight, height){
+    var imc = weight / (height * height);
+    //Show("O IMC será : " + imc);
+    return imc;
+}
+var nome = prompt("Digite o seu nome.");
+var altura = parseFloat(prompt(nome + " Informe a altura"));
+var peso = parseInt(prompt(nome + " Informe o peso"));
+
+var imc;
+imc = IMC(peso, altura);
+
+Show("O IMC será : " + imc);
+
+if (imc < 18.5) {
+    Show("Você está abaixo do recomendado")
+};
+if (imc > 35.0) {
+    Show("Você está acima do recomendado")
+};
+if (imc >= 18.5 && imc <= 35.0) {
+    Show("Você está na média")
+};
+
+</script>

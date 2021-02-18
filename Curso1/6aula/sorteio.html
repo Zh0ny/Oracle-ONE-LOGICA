@@ -1,0 +1,33 @@
+<meta charset="UTF-8">
+
+<script>
+    function BreakLine() {
+        document.write("<br><hr><br>");
+    };
+
+    function Show(frase) {
+        document.write("<big>" + frase + "</big>");
+        BreakLine();
+    };
+
+    function Raffle(n) {
+        return Math.round(Math.random() * n);
+    }
+
+    var numeroPensado = Raffle(132);
+    var chute = parseInt(prompt(" Informe o número"));
+
+    console.log(numeroPensado);
+
+    if (chute == numeroPensado) {
+        Show("Você acertou!");
+    } else {
+        Show("Você errou, o número pensado foi " + numeroPensado);
+        if (chute  > numeroPensado) {
+        Show("O número que você chutou é maior do que foi sorteado.");
+        } else {
+            Show("O número que você chutou é menor do que foi sorteado.");
+        };
+    };
+    
+</script>

@@ -1,0 +1,57 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var pallet = "white";
+    var brush = screen.getContext('2d');
+    var isMouseDown = false;
+    brush.fillStyle = 'grey';
+    brush.fillRect(0, 0, 600, 400);
+    var colors = ["blue", "yellow", "green", "red", "white"];
+    var radius = 10;
+
+    function drawSquare(posX,posY, fillColor) {
+        
+        brush.fillStyle = fillColor;
+        brush.fillRect(posX, posY, 50, 50);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(posX, posY, 50, 50);
+    }
+    
+    for (let index = 0; index < colors.length; index++) {
+        drawSquare(20 + 50*index,50,colors[index]);
+    }
+    
+    function drawCircle(event) {
+        var x = event.pageX - screen.offsetLeft;
+        var y = event.pageY - screen.offsetTop;
+        brush.fillStyle = pallet;
+        if(event.shiftKey){
+            radius +=10;
+        }else if (event.altKey) {
+            if (radius > 10) {
+                radius -= 5;
+            }
+        }
+        brush.beginPath();
+        brush.arc(x,y,radius,0, 2 * 3.14);
+        brush.fill();
+        console.log(x + ", " + y);
+    }
+    function click(event) {
+        var xMouse = event.pageX - screen.offsetLeft;
+        var yMouse = event.pageY - screen.offsetTop;
+        //console.log("Ok");
+        for (let index = 0; index < colors.length; index++) {
+            if(xMouse >= (20 + 50*index) && xMouse <= (70 + 50*index) && yMouse >= 50 && yMouse <= 100){
+                pallet = colors[index];
+                isMouseDown = false;
+            }
+        }
+    }
+    document.onmousedown = function() {isMouseDown = true;};
+    screen.onclick = click;
+    document.onmouseup   = function() { isMouseDown = false; };
+    document.onmousemove = function() { if(isMouseDown) { drawCircle(event); }};
+
+</script>

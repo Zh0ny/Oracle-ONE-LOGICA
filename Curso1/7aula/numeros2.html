@@ -1,0 +1,19 @@
+<meta charset="UTF-8">
+
+<script>
+    function BreakLine() {
+        document.write("<br><hr><br>");
+    };
+
+    function Show(frase) {
+        document.write("<big>" + frase + "</big>");
+        BreakLine();
+    };
+    var numeros = 20;
+
+    while(numeros >= 0){
+        Show("O seguinte número é par : " + numeros);
+        numeros--;
+    }
+    Show("FIM DO PROGRAMA");
+</script>

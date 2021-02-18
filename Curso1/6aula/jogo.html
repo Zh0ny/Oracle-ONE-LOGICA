@@ -1,0 +1,24 @@
+<meta charset="UTF-8">
+<script>
+
+    function BreakLine() {
+        document.write("<br><hr><br>");
+    };
+
+    function Show(frase) {
+        document.write("<big>" + frase + "</big>");
+        BreakLine();
+    };
+
+    var numeroPensado = Math.round(Math.random()*1000);
+    var chute = parseInt(prompt(" Informe o número"));
+
+    console.log(numeroPensado);
+
+    if (chute == numeroPensado) {
+        Show("Você acertou!");
+    } else {
+        Show("Você errou, o número pensado foi " + numeroPensado);
+    };
+
+</script>

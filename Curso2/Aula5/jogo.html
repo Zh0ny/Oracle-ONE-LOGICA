@@ -1,0 +1,55 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    var radius = 10;
+    var x = 300;
+    var y = 200;
+    var points = 0;
+
+    function drawCircle(x, y, radius, color) {
+
+        brush.fillStyle = color;
+        brush.beginPath();
+        brush.arc(x, y, radius, 0, 2 * Math.PI);
+        brush.fill();
+    }
+
+    function draw(x,y,radius) {
+        brush.clearRect(0,0,600,400);
+        brush.fillStyle = 'lightgray';
+        brush.fillRect(0, 0, 600, 400);
+        drawCircle(x, y, radius + 20, 'red'); // maior círculo
+        drawCircle(x, y, radius + 10, 'white');
+        drawCircle(x, y, radius, 'red'); // menor circulo
+        drawPoints("Pontuation: " + points);
+    }
+
+    function drawPoints(text) {
+        brush.font = "16px Georgia";
+        brush.fillStyle = "black";
+        brush.fillText(text, 50, 50);
+        
+    }
+
+    function shoot(evento) {
+
+        var xMouse = evento.pageX - screen.offsetLeft;
+        var yMouse = evento.pageY - screen.offsetTop;
+
+       if(xMouse >= x - radius && xMouse <= x + radius && yMouse >= y - radius && yMouse <= y + radius){
+            points++;   
+            alert("HIT");
+       }
+    }
+    screen.onclick = shoot;
+    setInterval(() => {
+        x = Math.floor(Math.random()*600);
+        y = Math.floor(Math.random()*400);
+        draw(x, y, radius);
+    }, 665);
+
+</script>

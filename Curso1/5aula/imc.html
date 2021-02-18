@@ -1,0 +1,34 @@
+<meta charset="UTF-8">
+<script>
+
+function BreakLine() {
+    document.write("<br><hr><br>");
+};
+
+function Show(frase) {
+    document.write("<big>" + frase + "</big>");
+    BreakLine();
+};
+
+function IMC(weight, height){
+    var imc = weight / (height * height);
+    //Show("O IMC será : " + imc);
+    return imc;
+}
+var nome = prompt("Digite o seu nome.");
+var altura = prompt(nome + " Informe a altura");
+var peso = prompt (nome + " Informe o peso");
+
+var imc;
+imc = IMC(peso, altura);
+
+Show("O IMC será : " + imc);
+nome = prompt("Digite o seu nome.");
+var irmaoAltura = prompt(nome + " Informe a altura");
+var irmaoPeso = prompt(nome + " Informe o peso");
+
+imc = IMC(irmaoPeso,irmaoAltura);
+
+Show("O IMC será : " + imc);
+
+</script>

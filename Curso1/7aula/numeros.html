@@ -1,0 +1,21 @@
+<meta charset="UTF-8">
+
+<script>
+    function BreakLine() {
+        document.write("<br><hr><br>");
+    };
+
+    function Show(frase) {
+        document.write("<big>" + frase + "</big>");
+        BreakLine();
+    };
+    var numeros = 30;
+
+    while(numeros <= 40){
+        if (numeros != 33 && numeros != 37) {
+            Show("Número : " + numeros);
+        }
+        numeros++;
+    }
+    Show("FIM DO PROGRAMA");
+</script>

@@ -1,0 +1,36 @@
+<meta charset="UTF-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    var serie2015 = [50, 25, 20, 5];
+    var serie2016 = [65, 20, 13, 2];
+    var colors = ["blue", "green", "yellow", "red"];
+
+    function drawText(text, posX, posY) {
+        brush.font = "16px Georgia";
+        brush.fillStyle = "black";
+        brush.fillText(text, posX, posY);
+    }
+    
+
+    function drawBar(posX,posY, serie, fillColor, text) {
+        drawText(text, posX, posY - 20);
+        barPosY = 0;
+        for (let index = 0; index < serie.length; index++) {
+            brush.fillStyle = fillColor[index];
+            brush.fillRect(posX, posY + barPosY, 50, serie[index]);
+            brush.strokeStyle = 'black';
+            brush.strokeRect(posX, posY + barPosY, 50, serie[index]);
+            barPosY += serie[index];
+        }
+    }
+    
+    
+    drawBar(35,50,serie2015,colors, "Série 2015");
+    drawBar(215,50,serie2016,colors, "Série 2016");
+
+</script>

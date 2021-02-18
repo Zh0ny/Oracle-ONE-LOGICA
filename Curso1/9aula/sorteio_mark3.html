@@ -1,0 +1,59 @@
+<meta charset="UTF-8">
+
+<br>
+<input type="number">
+<br>
+<button>comparar</button>
+
+<script>
+
+    function Raffle(n, repeticoes) {
+        var numeros = [];
+        var index = 0;
+        while (index < repeticoes) {
+            var numero = Math.round(Math.random() * n);
+            var achou = false;
+            for (var i = 0; i < numeros.length; i++) {
+                if (numeros[i] == numero || numero == 0) {
+                    achou = true;
+                    break;
+                }
+            }
+            if (achou == false) {
+                numeros.push(numero);
+                index++;
+            }
+        }
+        return numeros;
+    }
+
+    var numerosPensados = [];
+    numerosPensados = Raffle(50, 5);
+    
+
+    var input = document.querySelector("input");
+
+    function Verify() {
+        var acertou = false;
+        for (let index = 0; index < numerosPensados.length; index++) {
+            
+            if (input.value == numerosPensados[index]) {
+                //chrome mudou use alert 
+                //Show("Você acertou!");
+                alert("Você acertou!");
+                acertou = true;
+                break;
+            };
+        };
+        if (!acertou) {
+            alert("Você errou!"); 
+        };
+        input.value = "";
+        input.focus();
+    }   
+    
+    var button = document.querySelector("button");
+
+    button.onclick = Verify;
+    
+</script>

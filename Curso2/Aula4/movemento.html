@@ -1,0 +1,44 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var screen = document.querySelector("canvas");
+    var brush = screen.getContext("2d");
+    brush.fillStyle = "lightgray";
+    brush.fillRect(0, 0, 600, 400);
+    var keys = {
+        left: 37,
+        right: 39,
+        up: 38,
+        down: 40
+    }
+    function drawCircle(x, y, radius) {
+        brush.fillStyle = "blue";
+        brush.beginPath();
+        brush.arc(x, y, radius, 0, 2 * Math.PI);
+        brush.fill();
+    }
+    var x = 0;
+    var y = 0;
+    
+    function draw() {
+        brush.clearRect(0,0,600,400);
+        drawCircle(x, y, 20);
+    }
+
+    setInterval(draw, 16);
+
+    function input(event){
+        if (event.keyCode == keys.left) {
+            x -= 5;
+        }else if (event.keyCode == keys.right) {
+            x += 5;
+        }else if (event.keyCode == keys.up) {
+            y -= 5;
+        }else if (event.keyCode == keys.down) {
+            y += 5;
+        }
+    }
+    
+    document.onkeydown = input;
+
+</script>

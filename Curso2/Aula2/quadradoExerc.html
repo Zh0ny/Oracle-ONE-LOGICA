@@ -1,0 +1,31 @@
+
+<meta charset="UTF-8">
+
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    function drawText(text, posX, posY) {
+        brush.font = "20px Georgia";
+        brush.fillStyle = "black";
+        brush.fillText(text, posX, posY);
+    }
+
+    function drawSquare(posX,posY, fillColor) {
+        
+        brush.fillStyle = fillColor;
+        brush.fillRect(posX, posY, 50, 50);
+        brush.strokeStyle = 'black';
+        brush.strokeRect(posX, posY, 50, 50);
+    }
+    
+    drawText("Qual é a fração?", 0, 30);
+
+    for (let index = 0; index < 3; index++) {
+        drawSquare(50*index,50,"green");
+    }
+    drawSquare(150,50,"white");
+
+</script>

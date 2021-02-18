@@ -1,0 +1,25 @@
+<canvas width="600" height="400"></canvas>
+
+<script>
+    var screen = document.querySelector('canvas');
+    var brush = screen.getContext('2d');
+
+    function drawEsquadro(xa, ya, xc, yc, cor) {
+    brush.fillStyle = cor;
+    brush.beginPath();
+    brush.moveTo(xa, ya);
+    brush.lineTo(xa, yc);
+    brush.lineTo(xc, yc);
+    brush.fill();
+
+    brush.fillStyle = 'white';
+    brush.beginPath();
+    brush.moveTo((6*xa + xc)/7, (9*ya + 5*yc)/14);
+    brush.lineTo((6*xa + xc)/7, (ya + 6*yc)/7);
+    brush.lineTo((5*xa + 9*xc)/14, (ya + 6*yc)/7);
+    brush.fill();
+
+    }
+    drawEsquadro(50, 50, 400, 400, 'black');
+
+</script>

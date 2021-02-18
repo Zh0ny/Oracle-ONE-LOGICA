@@ -1,0 +1,20 @@
+<meta charset="UTF-8">
+
+<script>
+    function BreakLine() {
+        document.write("<br><hr><br>");
+    };
+
+    function Show(frase) {
+        document.write("<big>" + frase + "</big>");
+        BreakLine();
+    };
+    var limite = parseInt(prompt("Diga até que ano que o programa irá verificar se ocorreu copa."));
+    var ano = 1930;
+
+    while(ano <= limite){
+        Show("Teve copa no ano de: " + ano);
+        ano += 4;
+    }
+    Show("FIM DO PROGRAMA");
+</script>

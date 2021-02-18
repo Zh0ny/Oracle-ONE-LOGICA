@@ -1,0 +1,45 @@
+<meta charset="UTF-8">
+
+<br>
+<input type="number">
+<br>
+<button>comparar</button>
+
+<script>
+
+    function Raffle(n) {
+        return Math.round(Math.random() * n);
+    }
+
+    var numeroPensado = Raffle(10);
+    var input = document.querySelector("input");
+
+    function Verify() {
+        if (input.value == numeroPensado) {
+        //chrome mudou use alert 
+        //Show("Você acertou!");
+        alert("Você acertou!");
+        } else {
+            //chrome mudou use alert  
+            //Show("Você errou!");
+            alert("Você errou!");
+            if (input.value  > numeroPensado) {
+                //chrome mudou use alert  
+                //Show("O número que você chutou é maior do que foi sorteado.");
+                alert("O número que você chutou é maior do que foi sorteado.");
+            } else {
+                //chrome mudou use alert
+                //Show("O número que você chutou é menor do que foi sorteado.");
+                alert("O número que você chutou é menor do que foi sorteado.");
+            };
+        };
+        input.value = "";
+        input.focus();
+    }
+    
+    var button = document.querySelector("button");
+
+    button.onclick = Verify;
+    
+    
+</script>
